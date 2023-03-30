@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Setting>
+
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+@foreach (Setting setting in Model)
+{
+    count++;
+
+    <tr class="trContainer">
+        <td>@count</td>
+        <td>@setting.Key</td>
+        <td class="valueContainer">
+            @if (setting.Key == "Logo")
+            {
+                <img style="width:100px;" src="~/assets/images/@setting.Value" />
+            }
+            else
+            {
+                @setting.Value
+            }
+        </td>
+        <td>
+            <a @*asp-area="manage" asp-controller="setting" asp-action="Update" asp-route-id="@setting.Id"*@ class="btn btn-warning updateBtn">Update</a>
+        </td>
+        <td class="formContainer d-none">
+            @await Html.PartialAsync("_SettingFormPartial",setting)
+        </td>
+    </tr>
+
+}

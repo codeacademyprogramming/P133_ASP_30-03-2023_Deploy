@@ -1,0 +1,21 @@
+﻿@model Setting
+
+
+
+<form method="post" asp-area="manage" asp-controller="setting" asp-action="update" asp-route-id="@Model.Id" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="Value" class="form-label">@Model.Key</label>
+        @if (Model.Key != "Logo")
+        {
+            <input asp-for="Value" class="form-control">
+            <span asp-validation-for="Value" class="text text-danger"></span>
+        }
+        else
+        {
+            <input asp-for="File" accept="image/png" class="form-control">
+            <span asp-validation-for="File" class="text text-danger"></span>
+        }
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,102 @@
+﻿@model Product
+
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">Product Update Page</h1>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-lg-8">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control">
+                <span asp-validation-for="Price" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="DiscountedPrice" class="form-label"></label>
+                <input asp-for="DiscountedPrice" class="form-control">
+                <span asp-validation-for="DiscountedPrice" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ExTax" class="form-label"></label>
+                <input asp-for="ExTax" class="form-control">
+                <span asp-validation-for="ExTax" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Count" class="form-label"></label>
+                <input asp-for="Count" class="form-control">
+                <span asp-validation-for="Count" class="text text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input asp-for="IsNewArrival" class="form-check-input">
+                <label asp-for="IsNewArrival" class="form-check-label"></label>
+                <span asp-validation-for="IsNewArrival" class="text text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input asp-for="IsBestSeller" class="form-check-input">
+                <label asp-for="IsBestSeller" class="form-check-label"></label>
+                <span asp-validation-for="IsBestSeller" class="text text-danger"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input asp-for="IsFeatured" class="form-check-input">
+                <label asp-for="IsFeatured" class="form-check-label"></label>
+                <span asp-validation-for="IsFeatured" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="MainFile" class="form-label">Default file input example</label>
+                <input asp-for="MainFile" class="form-control" accept="image/jpeg">
+                <span asp-validation-for="MainFile" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="HoverFile" class="form-label">Default file input example</label>
+                <input asp-for="HoverFile" class="form-control" accept="image/jpeg">
+                <span asp-validation-for="HoverFile" class="text text-danger"></span>
+            </div>
+            <div>
+                <div class="mb-3">
+                    <label asp-for="Files" class="form-label">Default file input example</label>
+                    <input asp-for="Files" class="form-control" accept="image/jpeg">
+                    <span asp-validation-for="Files" class="text text-danger"></span>
+                </div>
+                <div class="row productImages">
+                    @await Html.PartialAsync("_ProductImagePartial",Model.ProductImages)
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <select asp-for="BrandId" class="custom-select" asp-items="new SelectList(ViewBag.Brands,nameof(Brand.Id), nameof(Brand.Name))">
+                </select>
+                <span asp-validation-for="BrandId" class="text text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <select asp-for="CategoryId" class="custom-select" asp-items="new SelectList(ViewBag.Categories,nameof(Category.Id), nameof(Category.Name))">
+                </select>
+                <span asp-validation-for="CategoryId" class="text text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <select asp-for="TagIds" class="custom-select" asp-items="new SelectList(ViewBag.Tags,nameof(Category.Id), nameof(Category.Name))">
+                </select>
+                <span asp-validation-for="TagIds" class="text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_Validation")
+}

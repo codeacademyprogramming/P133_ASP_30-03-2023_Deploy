@@ -1,0 +1,243 @@
+﻿@model ProfileVM
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<!--====== Breadcrumb Part Start ======-->
+
+<div class="breadcrumb-area">
+    <div class="container-fluid custom-container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">My Account</li>
+            </ol>
+        </nav>
+    </div> <!-- container -->
+</div>
+
+<!--====== Breadcrumb Part Ends ======-->
+<!--====== My Account Part Start ======-->
+
+<section class="my-account-area pt-10">
+    <div class="container-fluid custom-container">
+        <div class="row">
+            <div class="col-xl-3 col-md-4">
+                <div class="my-account-menu mt-30">
+                    <ul class="nav account-menu-list flex-column nav-pills" id="pills-tab" role="tablist">
+                        <li>
+                            <a class="@(TempData["Tab"] == null ? "active":"")" id="pills-dashboard-tab" data-toggle="pill" href="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="@(TempData["Tab"] == null ? "true":"false")"><i class="far fa-tachometer-alt-fast"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a class="@(TempData["Tab"]?.ToString() == "order" ? "active":"")" id="pills-order-tab" data-toggle="pill" href="#pills-order" role="tab" aria-controls="pills-order" aria-selected="@(TempData["Tab"]?.ToString() == "order" ? "true":"false")"><i class="far fa-shopping-cart"></i> Order</a>
+                        </li>
+                        <li>
+                            <a class="@(TempData["Tab"]?.ToString() == "download" ? "active":"")" id="pills-download-tab" data-toggle="pill" href="#pills-download" role="tab" aria-controls="pills-download" aria-selected="@(TempData["Tab"]?.ToString() == "download" ? "true":"false")"><i class="far fa-cloud-download"></i> Download</a>
+                        </li>
+                        <li>
+                            <a class="@(TempData["Tab"]?.ToString() == "payment" ? "active":"")" id="pills-payment-tab" data-toggle="pill" href="#pills-payment" role="tab" aria-controls="pills-payment" aria-selected="@(TempData["Tab"]?.ToString() == "payment" ? "true":"false")"><i class="fal fa-credit-card"></i> Payment Method</a>
+                        </li>
+                        <li>
+                            <a class="@(TempData["Tab"]?.ToString() == "address" ? "active":"")" id="pills-address-tab" data-toggle="pill" href="#pills-address" role="tab" aria-controls="pills-address" aria-selected="@(TempData["Tab"]?.ToString() == "address" ? "true":"false")"><i class="far fa-map-marker-alt"></i> Address</a>
+                        </li>
+                        <li>
+                            <a class="@(TempData["Tab"]?.ToString() == "account" ? "active":"")" id="pills-account-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="@(TempData["Tab"]?.ToString() == "account" ? "true":"false")"><i class="far fa-user"></i> Account Details</a>
+                        </li>
+                        <li>
+                            <a  asp-controller="account" asp-action="logout"><i class="far fa-sign-out-alt"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-md-8">
+                <div class="tab-content my-account-tab mt-30" id="pills-tabContent">
+                    <div class="tab-pane fade @(TempData["Tab"]?.ToString() == null ? "show active":"")" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
+                        <div class="my-account-dashboard account-wrapper">
+                            <h4 class="account-title">Dashboard</h4>
+                            <div class="welcome-dashboard">
+                                <p>Hello, <strong>Alex Tuntuni</strong> (If Not <strong>Tuntuni !</strong> <a href="#">Logout</a> )</p>
+                            </div>
+                            <p class="mt-25">From your account dashboard. you can easily check & view your recent orders, manage your shipping and billing addresses and edit your password and account details.</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade @(TempData["Tab"]?.ToString() == "order" ? "show active":"")" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
+                        <div class="my-account-order account-wrapper">
+                            <h4 class="account-title">Orders</h4>
+                            <div class="account-table text-center mt-30 table-responsive">
+                                <table class="table table-condensed" style="border-collapse:collapse;">
+                                    <thead>
+                                        <tr>
+                                            <th>№</th>
+                                            <th>Date</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th>Comment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Order order in Model.Orders)
+                                        {
+                                            <tr data-toggle="collapse" data-target="#demo@(order.Id)" class="accordion-toggle">
+                                                <td>@order.No</td>
+                                                <td>@order.CreatedAt?.ToString("dd MMM yyyy")</td>
+                                                <td class="text-success">@(order.OrderItems.Sum(o => (o.Price * o.Count)))</td>
+                                                <td >@order.Status</td>
+                                                <td >@order.Comment</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6" class="hiddenRow">
+                                                    <div class="accordian-body collapse" id="demo@(order.Id)">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="name">Name</th>
+                                                                    <th class="status">Count</th>
+                                                                    <th class="total">Price</th>
+                                                                    <th class="action">Total</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (OrderItem orderItem in order.OrderItems)
+                                                                {
+                                                                    <tr>
+                                                                        <td>@orderItem.Product.Title</td>
+                                                                        <td>@orderItem.Count</td>
+                                                                        <td>@orderItem.Price</td>
+                                                                        <td>@(orderItem.Price * orderItem.Count)</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade @(TempData["Tab"]?.ToString() == "download" ? "show active":"")" id="pills-download" role="tabpanel" aria-labelledby="pills-download-tab">
+                        <div class="my-account-download account-wrapper">
+                            <h4 class="account-title">Download</h4>
+                            <div class="account-table text-center mt-30 table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="name">Product</th>
+                                            <th class="date">Date</th>
+                                            <th class="status">Expire</th>
+                                            <th class="action">Download</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mostarizing Oil</td>
+                                            <td>Aug 22, 2020</td>
+                                            <td>Yes</td>
+                                            <td><a href="#">Download File</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Katopeno Altuni</td>
+                                            <td>July 22, 2020</td>
+                                            <td>Never</td>
+                                            <td><a href="#">Download File</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade @(TempData["Tab"]?.ToString() == "payment" ? "show active":"")" id="pills-payment" role="tabpanel" aria-labelledby="pills-payment-tab">
+                        <div class="my-account-payment account-wrapper">
+                            <h4 class="account-title">Payment Method</h4>
+                            <p class="mt-30">You Can't Saved Your Payment Method yet.</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade @(TempData["Tab"]?.ToString() == "address" ? "show active":"")" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
+                        <div class="my-account-address account-wrapper">
+                            <h4 class="account-title">Address</h4>
+                            <a class="main-btn main-btn-2 addAddress"><i class="far fa-edit"></i> Add Address</a>
+                            <div class="addressForm d-none">
+                                @await Html.PartialAsync("_AddressFormPartial",new Address())
+                            </div>
+                            <div class="addressContainer row">
+                                @if (Model.Addresses != null && Model.Addresses.Count() > 0)
+                                {
+                                    foreach (Address address in Model.Addresses)
+                                    {
+                                        <div class="account-address mt-30 col-lg-3">
+                                            <h6 class="name">@($"{address.Country} {address.City}")</h6>
+                                            <p>@address.AddressLine</p>
+                                            <p>Postal Code: @address.PostalCode</p>
+                                            <p>Esasdirmi: @address.IsMain</p>
+
+                                            <a class="main-btn main-btn-2" asp-controller="Account" asp-action="editAddress" asp-route-id="@address.Id"><i class="far fa-edit"></i> Edit Address</a>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade @(TempData["Tab"]?.ToString() == "account" ? "show active":"")" id="pills-account" role="tabpanel" aria-labelledby="pills-account-tab">
+                        <div class="my-account-details account-wrapper">
+                            <h4 class="account-title">Account Details</h4>
+
+                            <div class="account-details">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <input type="text" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <input type="text" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <input type="text" placeholder="Display Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <input type="text" placeholder="Email address">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <h5 class="title">Password change</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="single-form">
+                                            <input type="password" placeholder="Current Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <input type="password" placeholder="New Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <input type="password" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="single-form">
+                                            <button class="main-btn main-btn-2">Save Change</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== My Account Part Ends ======-->

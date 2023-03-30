@@ -1,0 +1,278 @@
+﻿@inject ILayoutService layoutservice
+
+@{
+    IDictionary<string,string> settings = await layoutservice.GetSettings();
+    IEnumerable<Category> categories = await layoutservice.GetCategories();
+    IEnumerable<BasketVM> basketVMs = await layoutservice.GetBaskets();
+
+    HeaderVM headerVM = new HeaderVM
+            {
+                BasketVMs = basketVMs,
+                Categories = categories,
+                Settings = settings
+            };
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<!-- Mirrored from demo.hasthemes.com/allup/allup/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 10:46:32 GMT -->
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>Allup - Electronics Responsive eCommerce HTML Template.</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" type="image/png">
+
+
+    <!-- CSS
+    ============================================ -->
+
+    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
+
+    <link rel="stylesheet" href="~/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/fontawesome.min.css">
+    
+    <!--===== Plugins CSS (All Plugins Files) =====-->
+
+    <link rel="stylesheet" href="~/assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/animate.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/assets/css/plugins/default.css">
+
+    <!--====== Main Style CSS ======-->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+    <!-- <link rel="stylesheet" href="~/assets/css/vendor/plugins.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.min.css"> -->
+
+</head>
+
+<body>
+
+    <!--====== PRELOADER PART START ======-->
+
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!--====== PRELOADER PART ENDS ======-->
+
+    <!--====== Header Part Start ======-->
+    @await Component.InvokeAsync("Header",headerVM)
+
+    <!--====== Header Part Ends ======-->
+
+    @RenderBody()
+
+    <!--====== Brand Part Start ======-->
+
+    <div class="brand-area pt-80">
+        <div class="container-fluid custom-container">
+            <div class="row brand-active">
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-1.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-2.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-3.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-4.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-5.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-6.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+                <div class="col-lg-2">
+                    <div class="single-brand">
+                        <a href="~/#">
+                            <img src="~/assets/images/brand/brand-4.jpg" alt="brand">
+                        </a>
+                    </div> <!-- single brand -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div>
+
+    <!--====== Brand Part Ends ======-->
+
+    <!--====== Features Banner Part Start ======-->
+
+    <section class="features-banner-area pt-80 pb-100">
+        <div class="container-fluid custom-container">
+            <div class="features-banner-wrapper d-flex flex-wrap">
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon1.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">Free Shipping</h3>
+                        <p>Free shipping on all US order</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon2.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">Support 24/7</h3>
+                        <p>Contact us 24 hours a day</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon3.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">100% Money Back</h3>
+                        <p>You have 30 days to Return</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon4.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">90 Days Return</h3>
+                        <p>If goods have problems</p>
+                    </div>
+                </div> <!-- single features banner -->
+                <div class="single-features-banner d-flex">
+                    <div class="banner-icon">
+                        <img src="~/assets/images/banner-icon/icon5.png" alt="Icon">
+                    </div>
+                    <div class="banner-content media-body">
+                        <h3 class="banner-title">Payment Secure</h3>
+                        <p>We ensure secure payment</p>
+                    </div>
+                </div> <!-- single features banner -->
+            </div> <!-- features banner wrapper -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== Features Banner Part Ends ======-->
+
+    <!--====== Newsletter Part Start ======-->
+
+    <section class="newsletter-area pt-100 pb-100 bg_cover" style="background-image: url(assets/images/bg-newletter.jpg)">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-8">
+                    <div class="newsletter-content">
+                        <h2 class="newsletter-title">Subscribe our newsletter</h2>
+                        <p>allup is a powerful eCommerce HTML Template</p>
+
+                        <div class="newsletter-forn">
+                            <form action="#">
+                                <input type="text" placeholder="Your Email address">
+                                <button class="main-btn">Subscribe</button>
+                            </form>
+                        </div>
+                    </div> <!-- newsletter content -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== Newsletter Part Ends ======-->
+
+    <!--====== Footer Part Start ======-->
+
+    @await Component.InvokeAsync("Footer",settings)
+
+    <!--====== Footer Part Ends ======-->
+
+    <!--====== Quick View Part Start ======-->
+
+    <!-- Modal -->
+    <div class="modal fade " id="productQuickModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                
+            </div> <!-- Modal content -->
+        </div> <!-- Modal dialog -->
+    </div> <!-- Modal -->
+
+    <!--====== Quick View Part Ends ======-->
+
+    <!--====== BACK TOP TOP PART START ======-->
+
+    <a href="~/#" class="back-to-top"><i class="ion-android-arrow-up"></i></a>
+
+    <!--====== BACK TOP TOP PART ENDS ======-->
+
+
+
+
+    <!--====== Vendors js ======-->
+    <script src="~/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="~/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    
+    <!--====== Plugins js ======-->
+    <script src="~/assets/js/plugins/popper.min.js"></script>
+    <script src="~/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/assets/js/plugins/slick.min.js"></script>
+    <script src="~/assets/js/plugins/jquery.countdown.min.js"></script>
+    <script src="~/assets/js/plugins/jquery-ui.min.js"></script>
+    @RenderSection("Scripts",false)
+
+    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
+
+    <!-- <script src="~/assets/js/plugins.min.js"></script> -->
+
+
+    <!--====== Main Activation js ======-->
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/signalR/dist/browser/signalr.min.js"></script>
+    <script src="~/assets/js/notification.js"></script>
+
+
+
+</body>
+
+
+<!-- Mirrored from demo.hasthemes.com/allup/allup/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 10:47:16 GMT -->
+</html>

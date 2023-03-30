@@ -1,0 +1,26 @@
+﻿@model ICollection<Group>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<ul>
+    @foreach (Group group in Model)
+    {
+        <li>@group.Name @group.StudentCount
+        <ul>
+            @foreach (Student student in group.Students)
+                {
+                    <li>@student.Name @student.SurName @student.Age</li>
+                }
+        </ul>
+        <ul>
+            @foreach (GroupTeacher groupTeacher in group.GroupTeachers)
+                {
+                    <li>@groupTeacher.Teacher.Name @groupTeacher.Teacher.SurName</li>
+                }
+        </ul>
+        </li>
+    }
+</ul>

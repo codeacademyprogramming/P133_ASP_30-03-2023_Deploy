@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P133Allup", "P133Allup\P133Allup.csproj", "{8404A14F-9E26-4817-9FA0-BF2FFB8BFDDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8404A14F-9E26-4817-9FA0-BF2FFB8BFDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8404A14F-9E26-4817-9FA0-BF2FFB8BFDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8404A14F-9E26-4817-9FA0-BF2FFB8BFDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8404A14F-9E26-4817-9FA0-BF2FFB8BFDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C8A6AC1-9139-4A54-A215-11F22EEF480B}
+	EndGlobalSection
+EndGlobal

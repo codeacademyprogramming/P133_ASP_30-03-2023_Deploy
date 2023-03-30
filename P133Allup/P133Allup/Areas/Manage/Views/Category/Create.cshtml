@@ -1,0 +1,50 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Create";
+    //IEnumerable<Category> categories = ViewBag.Categories;
+    //SelectList selectLists = new SelectList(categories, nameof(Category.Id), nameof(Category.Name));
+}
+
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">Category Create Page</h1>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-lg-8">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3 form-check">
+                <input asp-for="IsMain" class="form-check-input">
+                <label asp-for="IsMain" class="form-check-label"></label>
+                <span asp-validation-for="IsMain" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text text-danger"></span>
+            </div>
+            <div id="fileInput" class="mb-3 d-none">
+                <label asp-for="File" class="form-label">Default file input example</label>
+                <input asp-for="File" class="form-control" accept="image/jpeg">
+                <span asp-validation-for="File" class="text text-danger"></span>
+            </div>
+            <div id="parentList">
+                <div class="input-group mb-3">
+                    <select asp-for="ParentId" class="custom-select" asp-items="new SelectList(ViewBag.Categories,nameof(Category.Id), nameof(Category.Name))">
+                        @*@foreach (Category category in categories)
+                        {
+                        <option value="@category.Id">@category.Name</option>
+                        }*@
+                    </select>
+                    <span asp-validation-for="ParentId" class="text text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_Validation")
+}

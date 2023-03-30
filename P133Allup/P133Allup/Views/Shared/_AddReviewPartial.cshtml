@@ -1,0 +1,49 @@
+﻿@model Review
+<div class="rating-star d-flex">
+        <span class="title">Rating:</span>
+        <div class="rate">
+        <input form="reviewForm" type="radio" id="star5" asp-for="Start" value="5" />
+            <label for="star5" title="5">5 stars</label>
+        <input form="reviewForm" type="radio" id="star4" asp-for="Start" value="4" />
+            <label for="star4" title="4">4 stars</label>
+        <input form="reviewForm" type="radio" id="star3" asp-for="Start" value="3" />
+            <label for="star3" title="3">3 stars</label>
+        <input form="reviewForm" type="radio" id="star2" asp-for="Start" value="2" />
+            <label for="star2" title="2">2 stars</label>
+        <input form="reviewForm" type="radio" id="star1" asp-for="Start" value="1" />
+            <label for="star1" title="1">1 star</label>
+        </div>
+    </div>
+<form id="reviewForm" method="post" asp-controller="product" asp-action="AddReviuw">
+    <input type="hidden" name="ProductId" value="@Model.ProductId"/>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="single-form">
+                <label asp-for="Name" ></label>
+                <input asp-for="Name" placeholder="Name">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="single-form">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" placeholder="Email">
+                <span asp-validation-for="Email" class="text text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="single-form">
+                <label asp-for="Description">Your Review:</label>
+                <textarea asp-for="Description" placeholder="Write a review"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="single-form">
+                <button class="main-btn">Add Review</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @await Html.PartialAsync("_Validation")
+                            }

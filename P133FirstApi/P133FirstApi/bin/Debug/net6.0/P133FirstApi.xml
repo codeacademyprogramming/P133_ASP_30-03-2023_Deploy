@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>P133FirstApi</name>
+    </assembly>
+    <members>
+        <member name="T:P133FirstApi.Controllers.V4.CategoriesController">
+            <summary>
+            Categories Services
+            </summary>
+        </member>
+        <member name="M:P133FirstApi.Controllers.V4.CategoriesController.#ctor(P133FirstApi.DataAccessLayer.AppDbContext,AutoMapper.IMapper)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:P133FirstApi.Controllers.V4.CategoriesController.Post(P133FirstApi.DTOs.CategorDTOs.CategoryPostDto)">
+            <summary>
+            Creates an Employee.
+            </summary>
+            <remarks>
+            Sample request:
+            
+                POST api/v4/categories
+                {        
+                  "name": "Test"      
+                }
+            </remarks>
+            <param name="category"></param>
+            <returns>A newly created category Id</returns>
+            <response code="400">Object Invalid</response>
+            <response code="409">Name Already Exist</response>          
+            <response code="201">Successfully Created</response>          
+        </member>
+        <member name="T:P133FirstApi.DTOs.CategorDTOs.CategoryPostDto">
+            <summary>
+            Category Create Object
+            </summary>
+        </member>
+        <member name="P:P133FirstApi.DTOs.CategorDTOs.CategoryPostDto.Name">
+            <summary>
+            Category Name
+            </summary>
+        </member>
+    </members>
+</doc>

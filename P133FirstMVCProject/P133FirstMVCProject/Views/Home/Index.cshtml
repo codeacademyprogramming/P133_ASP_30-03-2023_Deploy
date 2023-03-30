@@ -1,0 +1,25 @@
+﻿@using P133FirstMVCProject.Models;
+@model List<Student>;
+
+@*@{
+    Student stu = ViewBag.Stu;
+}*@
+
+<h1>Home</h1>
+<h1>P133 First View @ViewData["NAME"]</h1>
+<h1>P133 First View @ViewData["surname"]</h1>
+<h1>P133 First View @ViewBag.name</h1>
+<h1>P133 First View @TempData["name"]</h1>
+@*<h1>P133 First View @Model.Name</h1>
+<h1>P133 First View @Model.SurName</h1>*@
+
+<ul>
+    @foreach (Student student in Model)
+    {
+        if (true)
+        {
+            
+        }
+        <li>@student.Name @student.SurName</li>
+    }
+</ul>

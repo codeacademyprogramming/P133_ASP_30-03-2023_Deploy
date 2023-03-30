@@ -1,0 +1,78 @@
+﻿@model PageNatedList<Order>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">Orders Page</h1>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-lg-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Full Name</th>
+                    <th>Created At</th>
+                    <th>Product Count</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                    <th>Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Order order in Model)
+                {
+                    count++;
+
+                    <tr>
+                        <td>@count</td>
+                        <td>@($"{order.Name} {order.SurName}")</td>
+                        <td>@order.CreatedAt?.ToString("dd-MMM-yyyy")</td>
+                        <td>@order.OrderItems?.Count()</td>
+                        <td>@order.OrderItems?.Sum(o=>(o.Count * o.Price))</td>
+                        <td>@order.Status</td>
+                        <td>@order.Comment</td>
+                        <td>
+                            <a asp-area="manage" asp-controller="order" asp-action="detail" asp-route-id="@order.Id" class="btn btn-primary">Detail</a>
+                            <a asp-area="manage" asp-controller="order" asp-action="Update" asp-route-id="@order.Id" class="btn btn-warning">Update</a>
+                            <a asp-area="manage" asp-controller="order" asp-action="Delete" asp-route-id="@order.Id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-12">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.PageIndex > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link"
+                       asp-controller="order" asp-action="index" asp-area="manage" asp-route-pageIndex="@(Model.PageIndex-1)">Previous</a>
+                    </li>
+                }
+
+                @for (int i = Model.StartPage; i <= Model.EndPage; i++)
+                {
+                    <li class="page-item @(Model.PageIndex == i ? "active":"")">
+                        <a class="page-link"
+                       asp-controller="order" asp-action="index" asp-area="manage" asp-route-pageIndex="@i">@i</a>
+                    </li>
+                }
+
+                @if (Model.PageIndex < Model.TotalPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link"
+                       asp-controller="order" asp-action="index" asp-area="manage" asp-route-pageIndex="@(Model.PageIndex+1)">Next</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>

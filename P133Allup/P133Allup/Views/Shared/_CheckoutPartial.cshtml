@@ -1,0 +1,72 @@
+﻿@model Order
+
+<form id="orderCheckoutForm" method="post">
+    <div class="billing-address mt-30">
+        <h4 class="allup-title">Billing Address</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" placeholder="First Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="SurName" ></label>
+                    <input asp-for="SurName" placeholder="Last Name">
+                    <span asp-validation-for="SurName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="Email" ></label>
+                    <input asp-for="Email" placeholder="Email Address">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="Phone"></label>
+                    <input asp-for="Phone" placeholder="Phone no">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="Country"></label>
+                    <input asp-for="Country" placeholder="Country">
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="City"></label>
+                    <input asp-for="City" placeholder="Town/City">
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="State"></label>
+                    <input asp-for="State" placeholder="State">
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="single-form">
+                    <label asp-for="PostalCode"></label>
+                    <input asp-for="PostalCode" placeholder="Zip Code">
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="single-form">
+                    <label asp-for="AddressLine"></label>
+                    <input asp-for="AddressLine" placeholder="Zip Code">
+                    <span asp-validation-for="AddressLine" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

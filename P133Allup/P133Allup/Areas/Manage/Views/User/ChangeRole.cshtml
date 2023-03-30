@@ -1,0 +1,35 @@
+﻿@model UserChangeRoleVM
+@{
+    ViewData["Title"] = "ChangeRole";
+}
+
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">User Change Role Page</h1>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-lg-8">
+        <form  method="post">
+            <div class="mb-3  d-none">
+                <label asp-for="UserId" class="form-label"></label>
+                <input asp-for="UserId" class="form-control">
+                <span asp-validation-for="UserId" class="text text-danger"></span>
+            </div>
+            <div class="input-group mb-3">
+                <select asp-for="RoleId" class="custom-select" asp-items="new SelectList(ViewBag.Role ,nameof(IdentityRole.Id), nameof(IdentityRole.Name))">
+                    @*@foreach (Category category in categories)
+                        {
+                        <option value="@category.Id">@category.Name</option>
+                        }*@
+                    </select>
+                 <span asp-validation-for="RoleId" class="text text-danger"></span>
+                </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_Validation")
+}

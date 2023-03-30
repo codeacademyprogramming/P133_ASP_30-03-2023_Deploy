@@ -1,0 +1,123 @@
+﻿@model Product
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <i class="fal fa-times"></i>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="product-quick-view-image mt-30">
+                <div class="quick-view-image">
+                    @if (Model.ProductImages != null && Model.ProductImages.Count() > 0)
+                    {
+                        foreach (ProductImage productImage in Model.ProductImages)
+                        {
+                            <div class="single-view-image">
+                                <img src="~/assets/images/product/@productImage.Image" alt="product">
+                            </div>
+                        }
+                    }
+                </div>
+                <ul class="quick-view-thumb">
+                    @if (Model.ProductImages != null && Model.ProductImages.Count() > 0)
+                    {
+                        foreach (ProductImage productImage in Model.ProductImages)
+                        {
+                            
+                            <li>
+                        <div class="single-thumb">
+                            <img src="~/assets/images/product/@productImage.Image" alt="">
+                        </div>
+                    </li>
+                        }
+                    }
+                </ul>
+            </div> <!-- Modal Quick View Image -->
+        </div>
+        <div class="col-md-6">
+            <div class="product-quick-view-content mt-30">
+                <h3 class="product-title">@Model.Title</h3>
+                <p class="reference">Reference: demo_12</p>
+                <ul class="rating">
+                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                    <li class="rating-on"><i class="fas fa-star"></i></li>
+                </ul>
+                <div class="product-prices">
+                    @if (Model.DiscountedPrice > 0)
+                    {
+                        <span class="sale-price">€@Model.Price</span>
+                        <span class="regular-price">€@Model.DiscountedPrice</span>
+                    }
+                    else
+                    {
+                        <span class="regular-price">€@Model.Price</span>
+                    }
+                    @if (Model.DiscountedPrice > 0)
+                    {
+                        <span class="save">Save @(((Model.Price - Model.DiscountedPrice) / Model.Price) * 100)%</span>
+                    }
+                </div>
+                <p class="product-description">@Html.Raw(Model.Description).</p>
+                <div class="product-size-color flex-wrap">
+                    @*<div class="product-size">
+                        <h5 class="title">Size</h5>
+                        <select>
+                            <option value="1">S</option>
+                            <option value="2">M</option>
+                            <option value="3">L</option>
+                            <option value="4">XL</option>
+                        </select>
+                    </div>*@
+                    @*<div class="product-color">
+                        <h5 class="title">Color</h5>
+                        <div class="color-input">
+                            <div class="single-color color-1">
+                                <input type="radio" id="radio-1" name="color">
+                                <label for="radio-1"></label>
+                            </div>
+                            <div class="single-color color-2">
+                                <input type="radio" id="radio-2" name="color">
+                                <label for="radio-2"></label>
+                            </div>
+                            <div class="single-color color-3">
+                                <input type="radio" id="radio-3" name="color">
+                                <label for="radio-3"></label>
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="product-quantity">
+                        <h5 class="title">Quantity</h5>
+                        <div class="quantity d-flex">
+                            <button type="button" id="sub" class="sub"><i class="fal fa-minus"></i></button>
+                            <input type="text" value="1" />
+                            <button type="button" id="add" class="add"><i class="fal fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-add-cart">
+                    <button><i class="icon ion-bag"></i> Add to cart</button>
+                </div>
+                <div class="product-wishlist-compare">
+                    <ul class="d-flex flex-wrap">
+                        <li><a href="#"><i class="fal fa-heart"></i> Add to wishlist</a></li>
+                        <li><a href="#"><i class="fal fa-repeat"></i> Add to compare</a></li>
+                    </ul>
+                </div>
+                <div class="product-share d-flex">
+                    <p>Share</p>
+                    <ul class="social media-body">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div> <!-- Modal Quick View Content -->
+        </div>
+    </div> <!-- row -->
+</div>  <!-- Modal Body -->

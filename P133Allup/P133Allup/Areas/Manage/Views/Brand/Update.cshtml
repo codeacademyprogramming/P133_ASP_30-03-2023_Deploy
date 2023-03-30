@@ -1,0 +1,46 @@
+﻿@model Brand
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">Brand Update Page</h1>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-lg-8">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desc" >Example textarea</label>
+                <textarea asp-for="Desc" class="form-control" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Desc') {
+                toolbar: ['bold', 'italic', 'link', 'undo', 'redo', 'numberedList', 'bulletedList']
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    @*<script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Desc');
+    </script>
+    @await Html.PartialAsync("_Validation")*@
+}

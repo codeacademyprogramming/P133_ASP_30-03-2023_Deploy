@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "AHTE3R+Vl0dIge+Af0xesK8IlOKGfQ0vZLZqGQ7BJwE=",
+  "Source": "P133FirstApi",
+  "BasePath": "_content/P133FirstApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "P133FirstApi\\wwwroot",
+      "Source": "P133FirstApi",
+      "ContentRoot": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133FirstApi\\P133FirstApi\\wwwroot\\",
+      "BasePath": "_content/P133FirstApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133FirstApi\\P133FirstApi\\wwwroot\\swagger\\ui\\custom.css",
+      "SourceId": "P133FirstApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133FirstApi\\P133FirstApi\\wwwroot\\",
+      "BasePath": "_content/P133FirstApi",
+      "RelativePath": "swagger/ui/custom.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\swagger\\ui\\custom.css"
+    }
+  ]
+}

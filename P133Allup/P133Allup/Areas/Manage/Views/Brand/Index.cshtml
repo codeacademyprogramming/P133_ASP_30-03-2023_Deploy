@@ -1,0 +1,20 @@
+﻿@model PageNatedList<Brand>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">Brands Page</h1>
+    </div>
+   @if (User.IsInRole("SuperAdmin"))
+    {
+        <div class="col-lg-2">
+            <a class="btn btn-primary" asp-action="create" asp-controller="brand" asp-area="manage"> Create</a>
+        </div>
+
+    }
+</div>
+<div class="row indexContainer">
+    @await Html.PartialAsync("_BrandIndexPartial",Model)
+</div>

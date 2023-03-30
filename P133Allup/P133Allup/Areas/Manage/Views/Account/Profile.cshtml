@@ -1,0 +1,62 @@
+﻿@model ProfileVM
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="row">
+    <div class="col-lg-2">
+        <h1 class="h3 mb-4 text-gray-800">Profile Page</h1>
+    </div>
+</div>
+<div class=" row">
+    <div class="col-lg-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SurName" class="form-label"></label>
+                <input asp-for="SurName" class="form-control">
+                <span asp-validation-for="SurName" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="FatherName" class="form-label"></label>
+                <input asp-for="FatherName" class="form-control">
+                <span asp-validation-for="FatherName" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control">
+                <span asp-validation-for="Email" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="UserName" class="form-label"></label>
+                <input asp-for="UserName" class="form-control">
+                <span asp-validation-for="UserName" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="OldPassword" class="form-label"></label>
+                <input asp-for="OldPassword" class="form-control">
+                <span asp-validation-for="OldPassword" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control">
+                <span asp-validation-for="Password" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control">
+                <span asp-validation-for="ConfirmPassword" class="text text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_Validation")
+}

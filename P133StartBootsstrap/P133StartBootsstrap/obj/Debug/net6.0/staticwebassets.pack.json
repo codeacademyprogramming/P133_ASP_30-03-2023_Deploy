@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\favicon.ico",
+      "PackagePath": "staticwebassets\\assets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\avataaars.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\avataaars.svg"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\portfolio\\cabin.png",
+      "PackagePath": "staticwebassets\\assets\\img\\portfolio\\cabin.png"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\portfolio\\cake.png",
+      "PackagePath": "staticwebassets\\assets\\img\\portfolio\\cake.png"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\portfolio\\circus.png",
+      "PackagePath": "staticwebassets\\assets\\img\\portfolio\\circus.png"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\portfolio\\game.png",
+      "PackagePath": "staticwebassets\\assets\\img\\portfolio\\game.png"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\portfolio\\safe.png",
+      "PackagePath": "staticwebassets\\assets\\img\\portfolio\\safe.png"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\assets\\img\\portfolio\\submarine.png",
+      "PackagePath": "staticwebassets\\assets\\img\\portfolio\\submarine.png"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\hamid.mammadov\\Desktop\\P133\\Project\\P133StartBootsstrap\\P133StartBootsstrap\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.P133StartBootsstrap.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.P133StartBootsstrap.props",
+      "PackagePath": "build\\P133StartBootsstrap.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.P133StartBootsstrap.props",
+      "PackagePath": "buildMultiTargeting\\P133StartBootsstrap.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.P133StartBootsstrap.props",
+      "PackagePath": "buildTransitive\\P133StartBootsstrap.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

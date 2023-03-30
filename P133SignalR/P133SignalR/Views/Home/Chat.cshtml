@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<h1>Chat</h1>
+
+<div class="container">
+    <div class="row p-1" id="groups">
+        <select id="groupId">
+            <option value="1">Group 1</option>
+            <option value="2">Group 2</option>
+            <option value="3">Group 3</option>
+        </select>
+        <div class="row p-1">
+            <div class="col-6 text-end">
+                <input type="button" id="joinGroup" value="Join Group" />
+            </div>
+        </div>
+    </div>
+    <div id="chats" class="  d-none ">
+        <div class="row p-1">
+            <div class="col-1">User</div>
+            <div class="col-5"><input type="text" id="userInput" /></div>
+        </div>
+        <div class="row p-1">
+            <div class="col-1">Message</div>
+            <div class="col-5"><input type="text" class="w-100" id="messageInput" /></div>
+        </div>
+        <div class="row p-1">
+            <div class="col-6 text-end">
+                <input type="button" id="sendButton" value="Send Message" />
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-6">
+                <hr />
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col-6">
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
+    </div>
+
+   
+</div>
